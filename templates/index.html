@@ -1,0 +1,36 @@
+ 
+{% extends 'base.html' %}
+
+{% import 'macros.html' as macro %} 
+
+{% block styles%}
+   {{ super() }}
+   <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+   
+   
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+<div class="row">
+ <div class="col-md-12">
+
+    <h1>Fashion News</h1> 
+   <ul>
+     {{macro.displaySourcesList(technology)}}
+
+   </ul>
+ </div>
+</div>
+<div class="row">
+ <div class="col-md-12">
+   <h1>Entertainment News</h1>
+   <ul>
+     {{macro.displaySourcesList(entertainment)}}
+   </ul>
+ </div>
+</div>
+</div>
+{% endblock %}
