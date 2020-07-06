@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+
+{% endblock %}
+
+{% block content%}
+
+
+{% for article_row in article %}
+
+
+
+<div class="container">
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <div class="thumbnail">
+        <a href="{{article_row.url}}">
+        <img src="{{article_row.image}}" alt="{{article_row.title}}" class="img-responsive"
+        styles="height:30px"></a>
+
+    <div class="caption">
+        <h4><a href="{{article_row.url}}" target="_blank">{{article_row.title |truncate(40)}}</a></h4>
+        <p>{{article.description | truncate(90)}}</p>
+        <a href="{{article_row.url}}" target="_blank"> Clicj</a>
+        </div>
+    <div class="footer">
+        Published at: {{article_row.date}}
+        </div>
+        </div>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+
+</div>
+
+
+{% endfor %}
+
+{%endblock%}
